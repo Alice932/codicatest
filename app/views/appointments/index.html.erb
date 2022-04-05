@@ -1,0 +1,16 @@
+<% if @appointments.count != 0%>
+  <div class = "card-group">
+    <% @appointments.each do |appointment| %>
+      <% if appointment.patient && appointment.doctor %>
+        <%= render "card", appointment: appointment %>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <h3>We don't have appointments</h3>
+<% end %>
+
+<% if can? :create, @appointment %>
+  <%= link_to "Create new appointment", new_appointment_path(@appointment), class: 'btn btn-success mt-4' %>
+<% end %>
+

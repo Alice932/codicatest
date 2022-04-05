@@ -1,0 +1,13 @@
+<% if @doctors.count != 0%>
+  <div class = "card-group">
+    <% @doctors.each do |doctor| %>
+      <%= render "card", doctor: doctor %>
+    <% end %>
+  </div>
+<% else %>
+  <h3>We don't have doctors</h3>
+<% end %>
+
+<% if can? :create, @doctor %>
+  <%= link_to "Create new doctor", new_doctor_path(@doctor), class: 'btn btn-success mt-4' %>
+<% end %>

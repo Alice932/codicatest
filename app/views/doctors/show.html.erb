@@ -1,0 +1,7 @@
+<%= render "card", doctor: @doctor %>
+<% if can? :update, @doctor %>
+  <%= link_to "Edit", edit_doctor_path(@doctor), class: 'btn btn-warning m-1' %>
+<% end %>
+<% if can? :destroy, @doctor %>
+  <%= button_to "Delete", doctor_path(@doctor), method: :delete, data: { confirm: "Вы хотите удалить врача из системы?" }, class: 'btn btn-danger' %>
+<% end %>

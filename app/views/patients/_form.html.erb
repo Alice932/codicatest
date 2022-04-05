@@ -1,0 +1,6 @@
+<%= simple_form_for @patient do |form| %>
+  <section>
+    <%= form.input :name, as: :string, class: 'w-20' %>
+  </section>
+  <%= form.button :submit, class: 'btn btn-success mt-3' %>
+<% end %>
