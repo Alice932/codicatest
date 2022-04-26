@@ -14,7 +14,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
 gem 'pry'
-
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
