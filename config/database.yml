@@ -39,7 +39,7 @@ development:
   # domain sockets, so uncomment these lines.
   #host: localhost
 
-  # The TCP port the server listens on. Defaults to 5432.
+
   # If your server runs on a different port number, change accordingly.
   port: 5436
 
@@ -58,6 +58,7 @@ development:
 test:
   <<: *default
   database: codicatest_test
+  port: 5436
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,3 +84,4 @@ production:
   database: codicatest_production
   username: codicatest
   password: <%= ENV['CODICATEST_DATABASE_PASSWORD'] %>
+  port: 5436

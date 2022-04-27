@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'faker'
 
-SPECIALITY = %w[Endocrinologist Neurologist Psychiatrist]
+SPECIALITY = %w[Endocrinologist Neurologist Psychiatrist].freeze
 
 admin = User.create_with(password: '12345678').find_or_create_by(
   username: Faker::Games::Witcher.witcher,

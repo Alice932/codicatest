@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAppointments < ActiveRecord::Migration[5.2]
   def change
     create_table :patients do |t|
@@ -11,7 +13,7 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
     create_table :appointments do |t|
       t.belongs_to :doctor
       t.belongs_to :patient
-      t.string :recomendation, null: false, default: ""
+      t.string :recomendation, null: false, default: ''
       t.timestamps
     end
   end

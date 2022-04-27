@@ -5,7 +5,7 @@
       <% @appointment.patient_id = current_user.patient_id%>
     </section>
     <section>
-      <%= form.association :doctor, collection: @doctors, label_method: :name, value_method: :id, label: "Doctor", include_blank: false, input_html: {class: 'w-50'} %>
+      <%= form.association :doctor, collection: @avaliable_doctors, label_method: :name, value_method: :id, label: "Doctor", include_blank: false, input_html: {class: 'w-50'} %>
     </section>
   <% end%>
   <% if current_user.admin_role?%>

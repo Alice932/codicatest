@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class AppointmentsController < ApplicationController
   include AppointmentsHelper
 
   def index
     @appointments = Appointment.all
-    id_set()
+    id_set
   end
 
   def show
@@ -24,12 +26,14 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
     @patients = Patient.all
     @doctors = Doctor.all
+    @avaliable_doctors = max_appoitnments
   end
 
   def edit
     @appointment = Appointment.find(params[:id])
     @patients = Patient.all
     @doctors = Doctor.all
+    @avaliable_doctors = max_appoitnments
   end
 
   def update
@@ -46,6 +50,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to appointments_path
   end
+
   private
 
   def appointment_params
