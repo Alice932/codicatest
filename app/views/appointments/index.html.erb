@@ -2,7 +2,14 @@
   <div class = "card-group">
     <% @appointments.each do |appointment| %>
       <% if appointment.patient && appointment.doctor %>
-        <%= render "card", appointment: appointment %>
+        <% check_status(appointment) %>
+          <% if appointment.status == "able" || current_user.admin_role?%>
+            <% if appointment.patient.id == current_user.patient_id || appointment.doctor.id == current_user.doctor_id %>
+              <%= render "card", appointment: appointment %>
+            <% elsif current_user.admin_role?%>
+              <%= render "card", appointment: appointment %>
+            <% end %>
+          <% end %>
       <% end %>
     <% end %>
   </div>
@@ -10,7 +17,6 @@
   <h3>We don't have appointments</h3>
 <% end %>
 
-<% if can? :create, @appointment %>
-  <%= link_to "Create new appointment", new_appointment_path(@appointment), class: 'btn btn-success mt-4' %>
-<% end %>
+<%= link_to "Create new appointment", new_appointment_path(@appointment), class: 'btn btn-success mt-4' %>
+
 

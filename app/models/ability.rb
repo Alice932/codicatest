@@ -8,9 +8,11 @@ class Ability
       can :manage, :all
     elsif user.patient_role?
       can :read, Doctor
-      can :read, Appointment if doctor_id: user.id
+      can :read, Appointment
+      can :create, Appointment
     elsif user.doctor_role?
       can :read, Patient
+      can :update, Appointment
       can :read, Appointment
     else
       can :read, Doctor

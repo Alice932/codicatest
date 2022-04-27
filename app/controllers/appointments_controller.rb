@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
+  include AppointmentsHelper
 
   def index
     @appointments = Appointment.all
+    id_set()
   end
 
   def show
@@ -11,6 +13,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
+      add_ids(@appointment)
       redirect_to @appointment
     else
       render :new
@@ -43,10 +46,9 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to appointments_path
   end
-
   private
 
   def appointment_params
-    params.require(:appointment).permit(:patient_id, :doctor_id, :description)
+    params.require(:appointment).permit(:patient_id, :doctor_id, :recomendation)
   end
 end

@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "Access denided"
     redirect_to root_url
   end
-
   protected
 
   def configure_permitted_parameters

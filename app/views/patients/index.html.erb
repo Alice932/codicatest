@@ -1,7 +1,7 @@
 <% if @patients.count != 0%>
   <div class = "card-group">
     <% @patients.each do |patient| %>
-      <%= render "card", patient: patient %>
+        <%= render "card", patient: patient %>
     <% end %>
   </div>
 <% else %>

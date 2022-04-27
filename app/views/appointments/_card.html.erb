@@ -5,6 +5,9 @@
   <div class = "card-body">
     <p><b>Patient: </b><%= appointment.patient.name %></p>
     <p><b>Doctor: </b><%= appointment.doctor.name %></p>
-    <p><b>Description: </b><%= appointment.description %></p>
+    <p><b>Recomendation: </b><%= appointment.recomendation %></p>
+    <% if current_user.admin_role?%>
+      <p><h3><%= appointment.status%></p></h3>
+    <% end %>
   </div>
 </div>
