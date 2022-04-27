@@ -1,12 +1,12 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field rspec-login">
     <p><%= f.label :login %><br/>
     <%= f.text_field :login %></p>
   </div>
 
-  <div class="field">
+  <div class="field rspec-pass">
     <%= f.label :password %><br/>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>

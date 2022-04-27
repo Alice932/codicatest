@@ -1,18 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "Appointments", type: :request do
-  let(:admin { create(:user, :admin) }
-  before { sign_in(admin) }
 
   describe "Create /appointments" do
-    it "should create" do
-      get new_appointment_path
-      expect(page).to have_content('created')
-    end
-    let(:params) do
-      attributes_for(:acceptance_act, user: admin)
-        .merge(user_id: employee.id, invoice_id: invoice.id, payment_amount: 42)
+    user = User.create(id: 3,
+                      username: 'Admin Patient',
+                      email: 'admin@test.com',
+                      password: "12345678",
+                      password_confirmation: "12345678")
+    doctor = Doctor.create(name: 'First Doctor', speciality: 'Psychiatrist')
+    before do
+      visit root_url
+      sign_in user
     end
 
+    it "should create" do
+      get "/appointments/new"
+      expect(response).to render_template(:new)
+    end
   end
 end

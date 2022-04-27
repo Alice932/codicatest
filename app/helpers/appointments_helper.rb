@@ -14,6 +14,7 @@ module AppointmentsHelper
         @user = User.find(current_user.id)
         @doctor = Doctor.new
         @doctor.name = @user.username
+        @doctor.email = @user.email
         @doctor.save
         @user.doctor_id = @doctor.id
         @user.save

@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
-    id_set
+    id_set()
   end
 
   def show
