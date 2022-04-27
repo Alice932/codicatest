@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker'
 gem 'coffee-script'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
